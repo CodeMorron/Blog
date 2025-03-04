@@ -31,6 +31,18 @@ app.get("/posts", (req, res) => {
   }
 });
 
+app.post("/posts",(req,res)=>{
+
+  let postObj = {
+    id: posts.length+1,
+    title : req.body.title,
+    article : req.body.description
+  }
+
+  posts.push(postObj)
+  res.json(posts)
+})
+
 app.listen(port, () => {
   console.log("API running on port " + port + "🏃🏽");
 });

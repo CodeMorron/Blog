@@ -4,13 +4,6 @@ import axios from 'axios'
 const port = 3000;
 const app = express();
 const API_URL = "http://localhost:4000/"
-let posts = [
-    {
-        id : 1,
-        title : "Le Titre",
-        article: "L'article",
-    }
-]
 
 
 app.use(express.static("public"));
@@ -30,9 +23,7 @@ app.get("/", async (req, res) => {
     } catch (error) {
         console.log(error)
     }
-
- 
-    
+   
 });
 
 
@@ -44,15 +35,15 @@ app.post("/delete",(req,res)=>{
     res.redirect("/")
 })
 
-app.post("/add", (req, res) => {
-    let title = req.body.title;
-    let description = req.body.description;
-
-    postTitles.push(title);
-    postDescriptions.push(description);
-
-    console.log(postTitles);
-    res.redirect("/"); // Redirect to the home page
+app.post("/add", async (req, res) => {
+    try {
+        let response = await axios.post(API_URL+"posts",req.body)
+        console.log(response.data)
+        res.redirect("/"); // Redirect to the home page
+    } catch (error) {
+        console.log(error)
+    }
+    
 });
 
 
