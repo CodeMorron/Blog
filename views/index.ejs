@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+
+
+<body>
+
+    <%- include("partials/header.ejs") %>
+    
+    <%locals.posts.forEach(post => {%>
+        <h1><%= post.title%></h1>
+        <p><%= post.article%></p>
+   <% })%>
+    
+</body>
+
+
+</html>
