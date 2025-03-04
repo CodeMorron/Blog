@@ -22,6 +22,8 @@ let posts = [
     article: "This Article is Just a simple test of my API understanding",
   },
 ];
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 app.get("/posts", (req, res) => {
   try {

@@ -14,6 +14,7 @@ app.get("/", async (req, res) => {
     
     try {
         let response = await axios.get(API_URL+"posts")
+        console.log(response.data)
         res.render("index.ejs",{
             posts : response.data
             
