@@ -45,6 +45,12 @@ app.post("/posts",(req,res)=>{
   res.json(posts)
 })
 
+app.delete("/posts/:id",(req,res)=>{
+
+  let postId = req.params.id
+  console.log(postId)
+})
+
 app.listen(port, () => {
   console.log("API running on port " + port + "🏃🏽");
 });

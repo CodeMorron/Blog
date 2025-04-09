@@ -32,8 +32,14 @@ app.get("/create", (req, res) => {
     res.render("create.ejs");
 });
 
-app.post("/delete",(req,res)=>{
-    res.redirect("/")
+app.get("/delete/:id",async (req,res)=>{
+    
+    try {
+        let response = await axios.delete(API_URL+"/delete/"+req.params.id)
+    } catch (error) {
+        
+    }
+  
 })
 
 app.post("/add", async (req, res) => {

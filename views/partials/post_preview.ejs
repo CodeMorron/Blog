@@ -14,7 +14,7 @@
                     <h2><%= locals.posts[i].title %></h2>
                     <p><%= locals.posts[i].article %></p>
 
-                    <form method="post" action="/delete">
+                    <form action="/delete/:id">
                         <button class="delete-btn" type="submit">Delete</button>    
                     </form>
                 </div>
